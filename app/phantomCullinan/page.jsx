@@ -13,7 +13,6 @@ import {
   Home,
   Sparkles,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 // Luxury Loader Component
 const LuxuryLoader = () => {
@@ -32,7 +31,7 @@ const LuxuryLoader = () => {
 
         {/* Loading Text */}
         <h2 className="text-3xl font-light text-white mb-4 tracking-widest animate-pulse">
-          PHANTOM CULLINAN
+          PHANTOM CULLINAN LUXURY
         </h2>
         <div className="flex items-center justify-center space-x-2">
           <div
@@ -57,51 +56,32 @@ const LuxuryLoader = () => {
 };
 
 // Home Button Component
-// const HomeButton = ({ onHomeClick }) => {
-//   const [isScrolled, setIsScrolled] = useState(false);
+const HomeButton = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setIsScrolled(window.scrollY > 100);
-//     };
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-//   return (
-//     <button
-//       onClick={() => router.push("/")}
-//       className={`fixed top-8 left-8 z-40 flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
-//         isScrolled
-//           ? "bg-white text-gray-900 shadow-2xl"
-//           : "bg-white/10 backdrop-blur-md text-white border border-white/20"
-//       } hover:scale-105 hover:shadow-amber-500/20`}
-//       aria-label="Return to home page"
-//     >
-//       <Home className="w-5 h-5" />
-//       <span className="font-medium tracking-wide">Home</span>
-//     </button>
-//   );
-// };
-// const HomeButton = ({ onHomeClick }) => {
-//   const [isScrolled, setIsScrolled] = useState(false);
-//   const router = useRouter();
-
-//   return (
-//     <button
-//       onClick={() => router.push("/")}
-//       className={`fixed top-8 left-8 z-40 flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
-//         isScrolled
-//           ? "bg-white text-gray-900 shadow-2xl"
-//           : "bg-white/10 backdrop-blur-md text-white border border-white/20"
-//       } hover:scale-105 hover:shadow-amber-500/20`}
-//       aria-label="Return to home page"
-//     >
-//       <Home className="w-5 h-5" />
-//       <span className="font-medium tracking-wide">Home</span>
-//     </button>
-//   );
-// };
+  return (
+    <button
+      onClick={() => (window.location.href = "/")}
+      className={`fixed top-8 left-8 z-40 flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-white text-gray-900 shadow-2xl"
+          : "bg-white/10 backdrop-blur-md text-white border border-white/20"
+      } hover:scale-105 hover:shadow-amber-500/20`}
+      aria-label="Return to home page"
+    >
+      <Home className="w-5 h-5" />
+      <span className="font-medium tracking-wide">Home</span>
+    </button>
+  );
+};
 
 // Hero Component
 const Hero = ({ roomName, tagline, onBookNow }) => {
@@ -145,7 +125,7 @@ const RoomOverview = () => {
             <p>
               The{" "}
               <span className="font-semibold text-gray-900">
-                Phantom Cullinan
+                Phantom Cullinan Luxury
               </span>{" "}
               represents the pinnacle of modern luxury accommodation. Named
               after the legendary diamond, this suite embodies rare elegance and
@@ -165,14 +145,14 @@ const RoomOverview = () => {
             <p>
               Every detail has been meticulously curated to provide an
               atmosphere of refined comfort, where contemporary design meets
-              classical luxury. The Phantom Cullinan is not just a room—it's a
-              destination.
+              classical luxury. The Phantom Cullinan Luxury is not just a
+              room—it's a destination.
             </p>
           </div>
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
             <img
               src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80"
-              alt="Phantom Cullinan Interior"
+              alt="Phantom Cullinan Luxury Interior"
               className="w-full h-full object-cover"
             />
           </div>
@@ -263,7 +243,7 @@ const ImageGallery = () => {
   const images = [
     {
       src: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80",
-      alt: "Phantom Cullinan Bedroom",
+      alt: "Phantom Cullinan Luxury Bedroom",
     },
     {
       src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
@@ -356,7 +336,8 @@ const BookingCTA = ({ onBookNow }) => {
           Reserve Your Sanctuary
         </h2>
         <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light">
-          Embrace the extraordinary. Your Phantom Cullinan experience awaits.
+          Embrace the extraordinary. Your Phantom Cullinan Luxury experience
+          awaits.
         </p>
         <button
           onClick={onBookNow}
@@ -373,7 +354,7 @@ const BookingCTA = ({ onBookNow }) => {
 };
 
 // Main Page Component
-const PhantomCullinanPage = () => {
+const PhantomCullinanLuxuryPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -382,16 +363,33 @@ const PhantomCullinanPage = () => {
       setIsLoading(false);
     }, 2500);
 
+    // Add custom animation for slow spin - MOVED INSIDE useEffect
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 3s linear infinite;
+      }
+    `;
+
+    // Check if style already exists to avoid duplicates
+    if (!document.querySelector("style[data-phantom-animations]")) {
+      style.setAttribute("data-phantom-animations", "true");
+      document.head.appendChild(style);
+    }
+
     return () => clearTimeout(timer);
   }, []);
 
   const handleBookNow = () => {
-    alert("Booking system integration would redirect to reservation page");
-  };
-
-  const handleHomeClick = () => {
-    alert("Would navigate to home page");
-    // In a real Next.js app: router.push('/')
+    window.location.href = "tel:+2348135083826";
   };
 
   if (isLoading) {
@@ -400,10 +398,9 @@ const PhantomCullinanPage = () => {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* SEO Meta Tags would go in Next.js Head component */}
-      {/* <HomeButton onHomeClick={HomeButton} /> */}
+      <HomeButton />
       <Hero
-        roomName="Phantom Cullinan"
+        roomName="Phantom Cullinan Luxury"
         tagline="Where Royal Comfort Meets Modern Luxury"
         onBookNow={handleBookNow}
       />
@@ -415,21 +412,4 @@ const PhantomCullinanPage = () => {
   );
 };
 
-export default PhantomCullinanPage;
-
-// Add custom animation for slow spin
-const style = document.createElement("style");
-style.textContent = `
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  .animate-spin-slow {
-    animation: spin-slow 3s linear infinite;
-  }
-`;
-document.head.appendChild(style);
+export default PhantomCullinanLuxuryPage;
