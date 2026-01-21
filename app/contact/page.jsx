@@ -51,29 +51,29 @@ const LuxuryLoader = () => (
 );
 
 // Home Button Component
-const HomeButton = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+// const HomeButton = () => {
+//   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 100);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+//   useEffect(() => {
+//     const handleScroll = () => setIsScrolled(window.scrollY > 100);
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
 
-  return (
-    <button
-      onClick={() => (window.location.href = "/")}
-      className={`fixed top-8 left-8 z-40 flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
-        isScrolled
-          ? "bg-white text-gray-900 shadow-2xl"
-          : "bg-white/10 backdrop-blur-md text-white border border-white/20"
-      } hover:scale-105`}
-    >
-      <Home className="w-5 h-5" />
-      <span className="font-medium tracking-wide">Home</span>
-    </button>
-  );
-};
+//   return (
+//     <button
+//       onClick={() => (window.location.href = "/")}
+//       className={`fixed top-8 left-8 z-40 flex items-center space-x-2 px-6 py-3 rounded-full transition-all duration-300 ${
+//         isScrolled
+//           ? "bg-white text-gray-900 shadow-2xl"
+//           : "bg-white/10 backdrop-blur-md text-white border border-white/20"
+//       } hover:scale-105`}
+//     >
+//       <Home className="w-5 h-5" />
+//       <span className="font-medium tracking-wide">Home</span>
+//     </button>
+//   );
+// };
 
 // Hero Component
 const Hero = () => (
@@ -591,7 +591,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <HomeButton />
+      {/* <HomeButton /> */}
       <Hero />
       <ContactInfoCards />
       <ContactForm />
