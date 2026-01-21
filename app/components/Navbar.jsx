@@ -11,7 +11,7 @@ export default function LuxuryHotelNavbar() {
   const dropdownRef = useRef(null);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "/" },
     {
       name: "Rooms & Suites",
       href: "/rooms",
@@ -85,7 +85,7 @@ export default function LuxuryHotelNavbar() {
           <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
             <a
-              href="#home"
+              href="/"
               onClick={() => setActiveLink("Home")}
               className="group flex items-center"
             >

@@ -19,7 +19,7 @@ export default function HotelRoomsGallery() {
   const rooms = [
     {
       id: 1,
-      name: "Phantom Afluent",
+      name: "Phantom Affluent",
       description: "Exclusively Furnished, Breakfast for One.",
       image:
         "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&h=600&fit=crop&q=80",
