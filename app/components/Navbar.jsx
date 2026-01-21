@@ -14,13 +14,17 @@ export default function LuxuryHotelNavbar() {
     { name: "Home", href: "#home" },
     {
       name: "Rooms & Suites",
-      href: "#rooms",
+      href: "/rooms",
       hasDropdown: true,
       subLinks: [
         { name: "Phantom Affluent", href: "/phantomAffluent" },
         { name: "Phantom Royal", href: "/phantomRoyal" },
-        { name: "Phantom Mini RR", href: "/phantomMiniRR" },
+        { name: "Phantom Mini Rolls Royce", href: "/phantomMiniRollsR" },
         { name: "Phantom Cullinan", href: "/phantomCullinan" },
+        {
+          name: "Phantom Rolls Royce Pent House",
+          href: "/phantomRollsRoycePH",
+        },
         {
           name: "Phantom RR Premium Suite",
           href: "/phantomRollsRoycePremiumSuite",
@@ -28,10 +32,10 @@ export default function LuxuryHotelNavbar() {
         { name: "Phantom Cullinan Luxury", href: "/phantomCullinanLuxury" },
       ],
     },
-    { name: "Dining", href: "#dining" },
-    { name: "Facilities", href: "#facilities" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: "Dining", href: "/dining" },
+    { name: "Facilities", href: "/facilities" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
