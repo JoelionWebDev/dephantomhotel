@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 /**
  * Luxury Hotel Rooms Gallery Component
@@ -12,9 +13,12 @@ import { useState } from "react";
  * - Premium card-based design with luxury aesthetics
  * - Dark theme background
  * - Fast-loading and performance-optimized
+ * - Client-side navigation to room detail pages
  */
 
 export default function HotelRoomsGallery() {
+  const router = useRouter();
+
   // Room data with optimized placeholder images (using high-quality hotel room stock photos)
   const rooms = [
     {
@@ -23,7 +27,7 @@ export default function HotelRoomsGallery() {
       description: "Exclusively Furnished, Breakfast for One.",
       image:
         "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/standard",
+      link: "/phantomAffluent",
     },
     {
       id: 2,
@@ -31,7 +35,7 @@ export default function HotelRoomsGallery() {
       description: "Exclusively Furnished, Breakfast for One.",
       image:
         "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/deluxe",
+      link: "/phantomRoyal",
     },
     {
       id: 3,
@@ -39,7 +43,7 @@ export default function HotelRoomsGallery() {
       description: "Exclusively Furnished, Breakfast for Two.",
       image:
         "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/executive",
+      link: "/phantomMiniRollsR",
     },
     {
       id: 4,
@@ -47,54 +51,59 @@ export default function HotelRoomsGallery() {
       description: "Lavishly Furnished, Breakfast for Two.",
       image:
         "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+      link: "/phantomCullinan",
     },
     {
       id: 5,
       name: "Phantom Rolls Royce Pent House",
       description: "Lavishly Furnished, with a Spacious Rooftop Sit-Out",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&q=80",
+      link: "/phantomRollsRoycePH",
     },
     {
       id: 6,
-      name: "Phantom Rolls Royce Premium Suite.",
+      name: "Phantom Rolls Royce Premium Suite",
       description: "A Bed and a Living Room with Kitchen, Breakfast for Two",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+        "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=800&h=600&fit=crop&q=80",
+      link: "/phantomRollsRoycePremiumSuite",
     },
     {
       id: 7,
       name: "Phantom Cullinan Luxury (Double Bed)",
       description:
-        "Lavishly Furnished, with a Spacious Balcony, Double Bed, and Double Toilet, Breakfast for two",
+        "Lavishly Furnished, with a Spacious Balcony, Double Bed, and Double Toilet, Breakfast for Four",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+        "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?w=800&h=600&fit=crop&q=80",
+      link: "/phantomCullinanLuxury",
     },
     {
       id: 8,
       name: "Restaurant View",
-      description:
-        "Lavishly Furnished, with a Spacious Balcony, Double Bed, and Double Toilet, Breakfast for two",
+      description: "Fine Dining Experience with Scenic Ambiance",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop&q=80",
+      link: "/amenities/restaurant",
     },
     {
       id: 9,
       name: "Swimming Pool View",
-      description:
-        "Lavishly Furnished, with a Spacious Balcony, Double Bed, and Double Toilet, Breakfast for two",
+      description: "Luxury Pool with Panoramic Views",
       image:
-        "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&h=600&fit=crop&q=80",
-      link: "/rooms/royal-suite",
+        "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&h=600&fit=crop&q=80",
+      link: "/amenities/swimming-pool",
     },
   ];
 
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  /**
+   * Handle navigation to room detail page
+   */
+  const handleViewDetails = (link) => {
+    router.push(link);
+  };
 
   /**
    * Simulates Next.js Image component behavior
@@ -147,7 +156,7 @@ export default function HotelRoomsGallery() {
               className="group relative bg-zinc-900 rounded-lg overflow-hidden shadow-lg shadow-black/50 hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 cursor-pointer"
               onMouseEnter={() => setHoveredCard(room.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => console.log(`Navigate to ${room.link}`)}
+              onClick={() => handleViewDetails(room.link)}
             >
               {/* 
                 Image Container with Hover Effects
@@ -171,8 +180,9 @@ export default function HotelRoomsGallery() {
                   }`}
                 ></div>
 
-                {/* Premium badge - optional accent */}
-                {room.name === "Royal Suite" && (
+                {/* Premium badge - for signature rooms */}
+                {(room.name.includes("Penthouse") ||
+                  room.name.includes("Premium")) && (
                   <div className="absolute top-4 right-4 bg-amber-500 text-black text-xs px-3 py-1 rounded-full font-light tracking-wider">
                     SIGNATURE
                   </div>
@@ -199,6 +209,7 @@ export default function HotelRoomsGallery() {
                   - Premium hover effect with color transition
                   - Gold accent for luxury feel
                   - Subtle transform on hover
+                  - Navigates to room detail page
                 */}
                 <button
                   className={`w-full py-3 px-6 border border-amber-500 text-amber-500 rounded 
@@ -209,7 +220,7 @@ export default function HotelRoomsGallery() {
                     }`}
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent card click when clicking button
-                    console.log(`Book ${room.name}`);
+                    handleViewDetails(room.link);
                   }}
                 >
                   VIEW DETAILS
@@ -236,7 +247,10 @@ export default function HotelRoomsGallery() {
         <p className="text-gray-400 mb-6 font-light text-lg">
           Experience world-class hospitality in the heart of Lekki
         </p>
-        <button className="bg-amber-500 text-black px-8 py-4 rounded hover:bg-amber-400 transition-colors duration-300 font-light tracking-widest text-sm">
+        <button
+          className="bg-amber-500 text-black px-8 py-4 rounded hover:bg-amber-400 transition-colors duration-300 font-light tracking-widest text-sm"
+          onClick={() => router.push("/booking")}
+        >
           BOOK YOUR STAY
         </button>
       </div>
