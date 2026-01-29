@@ -111,7 +111,7 @@ export default function LuxuryHotelNavbar() {
                           setIsRoomsDropdownOpen(!isRoomsDropdownOpen)
                         }
                         onMouseEnter={() => setIsRoomsDropdownOpen(true)}
-                        className="relative px-4 py-2 text-sm font-light tracking-wider uppercase transition-all duration-300 group flex items-center gap-1"
+                        className="relative px-4 py-2 text-teal-300 font-light tracking-wider uppercase transition-all duration-300 group flex items-center gap-1"
                       >
                         <span
                           className={`relative z-10 ${
@@ -227,7 +227,7 @@ export default function LuxuryHotelNavbar() {
                 className="p-2 text-white hover:text-amber-400 transition-colors duration-300"
                 aria-label="Call us"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-5 h-5 " />
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -283,7 +283,7 @@ export default function LuxuryHotelNavbar() {
                   <>
                     <button
                       onClick={() => setIsMobileRoomsOpen(!isMobileRoomsOpen)}
-                      className={`flex items-center justify-between w-full py-4 text-2xl font-light tracking-wider uppercase border-b border-white/10 transition-all duration-300 hover:text-amber-400 ${
+                      className={`flex items-center justify-between w-full py-4 text-lg font-light tracking-wider uppercase border-b border-white/10 transition-all duration-300 hover:text-amber-400 ${
                         activeLink === link.name
                           ? "text-amber-400 font-medium"
                           : "text-white"
@@ -335,7 +335,7 @@ export default function LuxuryHotelNavbar() {
                       setActiveLink(link.name);
                       setIsMobileMenuOpen(false);
                     }}
-                    className={`block py-4 text-2xl font-light tracking-wider uppercase border-b border-white/10 transition-all duration-300 hover:text-amber-400 hover:translate-x-2 ${
+                    className={`block py-4 text-lg font-light tracking-wider uppercase border-b border-white/10 transition-all duration-300 hover:text-amber-400 hover:translate-x-2 ${
                       activeLink === link.name
                         ? "text-amber-400 font-medium"
                         : "text-white"
