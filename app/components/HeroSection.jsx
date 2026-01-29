@@ -62,7 +62,7 @@ export default function LuxuryHotelHero() {
               >
                 <Award className="h-5 w-5 text-amber-400" />
                 <span className="text-sm tracking-widest text-amber-400 uppercase font-light">
-                  A New Dimension of Luxury
+                  De Phantom Hotel Lekki
                 </span>
               </div>
 
@@ -75,13 +75,13 @@ export default function LuxuryHotelHero() {
                 }`}
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                DPH
+                Ikate
                 <br />
-                <span className="text-amber-400">Lekki Phase1</span>
+                <span className="text-amber-400">Branch</span>
               </h1>
 
               {/* Subheadline */}
-              <p
+              {/* <p
                 className={`mx-auto mb-8 sm:mb-10 max-w-3xl text-lg sm:text-xl text-slate-200 font-light leading-relaxed transition-all duration-1000 delay-400 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
@@ -90,7 +90,7 @@ export default function LuxuryHotelHero() {
               >
                 De Phantom Continental Hotel Ikate along Nike Art Gallery Road,
                 Lekki Phase 1.
-              </p>
+              </p> */}
 
               {/* CTA Buttons */}
               <div
@@ -118,10 +118,6 @@ export default function LuxuryHotelHero() {
                     </svg>
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </button>
-
-                <button className="px-8 py-4 bg-transparent text-white font-medium rounded-full border-2 border-white/30 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white hover:shadow-xl hover:scale-105">
-                  View Rooms
                 </button>
               </div>
 
@@ -156,10 +152,11 @@ export default function LuxuryHotelHero() {
             - border-amber-500/60 for golden border with slight transparency
             - shadow-2xl and shadow-amber-500/20 for golden glow effect
           */}
+
           <div className="bg-transparent backdrop-blur-xl rounded-2xl shadow-2xl shadow-amber-500/20 border-2 border-amber-500/60 p-6 sm:p-8">
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
               {/* Check-in */}
-              <div className="group">
+              {/* <div className="group">
                 <label className="block text-xs font-medium text-white uppercase tracking-wider mb-2">
                   Check-in
                 </label>
@@ -171,10 +168,10 @@ export default function LuxuryHotelHero() {
                     placeholder="Select date"
                   />
                 </div>
-              </div>
+              </div> */}
 
               {/* Check-out */}
-              <div className="group">
+              {/* <div className="group">
                 <label className="block text-xs font-medium text-white uppercase tracking-wider mb-2">
                   Check-out
                 </label>
@@ -186,10 +183,10 @@ export default function LuxuryHotelHero() {
                     placeholder="Select date"
                   />
                 </div>
-              </div>
+              </div> */}
 
               {/* Guests */}
-              <div className="group">
+              {/* <div className="group">
                 <label className="block text-xs font-medium text-white uppercase tracking-wider mb-2">
                   Guests
                 </label>
@@ -202,12 +199,12 @@ export default function LuxuryHotelHero() {
                     <option className="bg-slate-900">4+ Guests</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
 
               {/* Search Button */}
-              <button className="w-full px-6 py-4 bg-amber-500 text-slate-900 font-medium rounded-lg transition-all duration-300 hover:bg-amber-400 hover:shadow-xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95">
+              {/* <button className="w-full px-6 py-4 bg-amber-500 text-slate-900 font-medium rounded-lg transition-all duration-300 hover:bg-amber-400 hover:shadow-xl hover:shadow-amber-500/50 hover:scale-105 active:scale-95">
                 Check Availability
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
